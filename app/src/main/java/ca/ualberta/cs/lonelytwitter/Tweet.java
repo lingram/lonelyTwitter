@@ -23,6 +23,7 @@ public abstract class Tweet  {
 
     public Tweet(String message) {
         this.message = message;
+        this.date = new Date();
     }
 
 
@@ -52,6 +53,11 @@ public abstract class Tweet  {
 
     public ArrayList<Mood> getMoods(){
         return this.mood_list;
+    }
+
+    @Override
+    public String toString(){
+        return date.toString() + " | " + message;
     }
 
 }
