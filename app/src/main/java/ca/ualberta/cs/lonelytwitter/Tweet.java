@@ -3,13 +3,14 @@ package ca.ualberta.cs.lonelytwitter;
 import android.app.Activity;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by lmingram on 1/12/16.
  */
-public abstract class Tweet  {
+public abstract class Tweet implements Comparable<Tweet> {
     protected Date date;
     protected String message;
     protected ArrayList<Mood> mood_list = new ArrayList<Mood>();
@@ -60,4 +61,12 @@ public abstract class Tweet  {
         return date.toString() + " | " + message;
     }
 
+    public int compareTo(Tweet t1) {
+        return this.date.compareTo(t1.getDate());
+    }
+
+    public boolean equals(Tweet t1) {
+        return (this.message.equals(t1.getMessage())) && (this.date.equals(t1.date));
+
+    }
 }
