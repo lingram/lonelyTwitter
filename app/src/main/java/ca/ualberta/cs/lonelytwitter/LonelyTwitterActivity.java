@@ -14,6 +14,7 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,8 +25,32 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * The main activity for a small, personal Twitter app to capture, <br> notes and comments
+ * <p>It saves the <pre>input tweets</pre> in the jason files.<p/>
+ *
+ * Sample Code:
+ *
+ *      <code>
+ *          for(int i=0; i<10; i++){
+ *              doSomething();
+ *          }
+ *      </code>
+ *
+ * List of important stuff
+ *
+ * <ul>
+ *     <li>item1<li/>
+ *     <li>item2<li/>
+ *     <li>item3<li/>
+ * </ul>
+ *
+ * @since 1.2.1
+ * @see LonelyTwitterActivity for more information
+ * @author Lee Ingram
+ * @version 2.3
+ */
 public class LonelyTwitterActivity extends Activity {
-
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
@@ -34,7 +59,9 @@ public class LonelyTwitterActivity extends Activity {
 
 	private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
 
-	/** Called when the activity is first created. */
+	/**
+	 * Called when the activity is first created.
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

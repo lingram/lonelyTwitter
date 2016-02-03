@@ -3,7 +3,8 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by lmingram on 1/12/16.
+ * A tweet with a higher priority level, which implements tweet
+ * @see Tweet
  */
 public class ImportantTweet extends Tweet implements Tweetable{
     public ImportantTweet(String message, Date date) {
@@ -14,6 +15,10 @@ public class ImportantTweet extends Tweet implements Tweetable{
         super(message);
     }
 
+    /**
+     * Indicates this tweets important status
+     * @return a boolean value, stating wither it's important or not
+     */
     @Override
     public Boolean isImportant() {
         return true;

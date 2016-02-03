@@ -3,7 +3,10 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by lmingram on 1/12/16.
+ * Extends the mood class
+ *
+ * @see Angry
+ * @see Mood
  */
 public class Happy extends Mood {
     private Date date;

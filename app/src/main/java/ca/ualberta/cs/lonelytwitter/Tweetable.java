@@ -3,7 +3,8 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by lmingram on 1/12/16.
+ * the interface that all tweets should follow
+ * @see Tweet
  */
 public interface Tweetable {
     public String getMessage();

@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- * Created by lmingram on 1/26/16.
+ * a list of tweets
+ * @see Tweet
  */
 public class TweetList {
     private ArrayList<Tweet> tweets= new ArrayList<Tweet>();

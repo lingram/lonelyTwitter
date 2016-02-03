@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by lmingram on 1/12/16.
+ * the guts of the lonely twitter app.
  */
 public abstract class Tweet implements Comparable<Tweet> {
     protected Date date;
@@ -27,7 +27,11 @@ public abstract class Tweet implements Comparable<Tweet> {
         this.date = new Date();
     }
 
-
+    /**
+     * changes the text message assciated with a tweet
+     * @param message
+     * @throws TweetTooLongException
+     */
     public void setMessage(String message) throws TweetTooLongException {
         if(message.length() > 140) {
             throw new TweetTooLongException();
@@ -48,6 +52,11 @@ public abstract class Tweet implements Comparable<Tweet> {
         this.date = date;
     }
 
+    /**
+     * adds a mood to this tweet
+     * @see Mood
+     * @param mood
+     */
     public void addMood(Mood mood){
         this.mood_list.add(mood);
     }

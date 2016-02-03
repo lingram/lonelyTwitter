@@ -3,7 +3,18 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by lmingram on 1/12/16.
+ * Allows devs to attach moods
+ *Implemented moods:
+ * <ul>
+ *     <li>angry</li>
+ *     <li>happ</li>
+ * </ul>
+ *
+ * To be implmented
+ *
+ * scared
+ * sad
+ *
  */
 public abstract class Mood {
 
