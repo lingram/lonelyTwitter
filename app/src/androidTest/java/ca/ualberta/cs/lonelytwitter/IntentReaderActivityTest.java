@@ -16,12 +16,60 @@ public class IntentReaderActivityTest extends ActivityInstrumentationTestCase2{
 
     //
     //
+    public void testSendText(){
+        Intent intent = new Intent();
+        intent.putExtra(IntentReaderActivity.TEXT_TO_TRANSFORM_KEY, "message 1");
 
+        setActivityIntent(intent);
+        IntentReaderActivity ira = (IntentReaderActivity) getActivity();
+
+        assertEquals("IntentReaderActivity sent text from intent",
+                "message 1", ira.getText());
+    }
     //
     //
+
+    public void testDisplayText(){
+        Intent intent = new Intent();
+        intent.putExtra(IntentReaderActivity.TEXT_TO_TRANSFORM_KEY, "message 2");
+
+        setActivityIntent(intent);
+        IntentReaderActivity ira = (IntentReaderActivity) getActivity();
+
+        TextView textView = (TextView) ira.findViewById(R.id.intentText);
+        assertEquals("Text should be displayed", "message 2", textView.getText().toString());
+    }
+
+    public void testDoubleText(){
+        Intent intent = new Intent();
+        intent.putExtra(IntentReaderActivity.TEXT_TO_TRANSFORM_KEY, "message 3");
+        intent.putExtra(IntentReaderActivity.MODE_OF_TRANSFORM_KEY,
+                IntentReaderActivity.DOUBLE);
+
+        setActivityIntent(intent);
+        IntentReaderActivity ira = (IntentReaderActivity)getActivity();
+        assertEquals("Text should be repeated", "message 3message 3", ira.getText());
+    }
 
     //TODO: Add your code here ...
 //-------------------------------------------------------------------------------
+    public void testReverseText(){
+        Intent intent = new Intent();
+        intent.putExtra(IntentReaderActivity.TEXT_TO_TRANSFORM_KEY, "message 4");
+        intent.putExtra(IntentReaderActivity.MODE_OF_TRANSFORM_KEY,
+                IntentReaderActivity.REVERSE);
 
+        setActivityIntent(intent);
+        IntentReaderActivity ira = (IntentReaderActivity)getActivity();
+        assertEquals("Text should be reversed", "4 egassem", ira.getText());
+    }
+
+    public void testDefaultText(){
+        Intent intent = new Intent();
+
+        setActivityIntent(intent);
+        IntentReaderActivity ira = (IntentReaderActivity)getActivity();
+        assertEquals("Text should be reversed", "default text", ira.getText());
+    }
 //-------------------------------------------------------------------------------
 }
