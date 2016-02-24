@@ -34,7 +34,15 @@ public class ElasticsearchTweetController {
             // NOTE: I'm a making a huge assumption here, that only the first search term
             // will be used.
 
-            Search search = new Search.Builder(search_strings[0])
+            String query = "{\n" +
+                    "    \"query\": {\n" +
+                    "                \"query_string\" : {\n" +
+                    "                    \"query\" : " + search_strings[0] +"\n" +
+                    "                }\n" +
+                    "    }\n" +
+                    "}";
+
+            Search search = new Search.Builder(query)
                     .addIndex("testing")
                     .addType("tweet")
                     .build();
@@ -89,6 +97,9 @@ public class ElasticsearchTweetController {
             return null;
         }
     }
+
+
+
 
     public static void verifyClient() {
         // 1. Verify that 'client' exists.
