@@ -102,4 +102,5 @@ public abstract class Tweet {
         }
         return thumbnail;
     }
+
 }

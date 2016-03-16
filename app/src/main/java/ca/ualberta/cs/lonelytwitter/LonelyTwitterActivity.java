@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.ExecutionException;
 
 public class LonelyTwitterActivity extends Activity {
@@ -66,7 +67,7 @@ public class LonelyTwitterActivity extends Activity {
                 tweets.add(latestTweet);
 
                 latestTweet.addThumbnail(thumbnail);
-
+                sortTweetList();
                 adapter.notifyDataSetChanged();
 
                 // Add the tweet to Elasticsearch
@@ -98,7 +99,7 @@ public class LonelyTwitterActivity extends Activity {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-
+        sortTweetList();
 //        adapter = new ArrayAdapter<Tweet>(this, R.layout.list_item, tweets);
         // Binds tweet list with view, so when our array updates, the view updates with it
         adapter = new TweetAdapter(this, tweets); /* NEW! */
@@ -107,10 +108,14 @@ public class LonelyTwitterActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && requestCode == RESULT_OK) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             thumbnail = (Bitmap)extras.get("data");
             pictureButton.setImageBitmap(thumbnail);
         }
+    }
+
+    private void sortTweetList(){
+        Collections.sort(tweets, Collections.reverseOrder());
     }
 }
