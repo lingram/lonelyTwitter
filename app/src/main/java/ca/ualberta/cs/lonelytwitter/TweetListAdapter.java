@@ -15,8 +15,8 @@ import java.util.ArrayList;
  * NEW!
  * Using the example from https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
  */
-public class TweetAdapter extends ArrayAdapter<Tweet> {
-    public TweetAdapter(Context context, ArrayList<Tweet> users) {
+public class TweetListAdapter extends ArrayAdapter<Tweet> {
+    public TweetListAdapter(Context context, ArrayList<Tweet> users) {
         super(context, 0, users);
     }
 

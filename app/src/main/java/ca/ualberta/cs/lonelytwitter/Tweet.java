@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 
-import com.google.gson.Gson;
+//removed unused import for com.google.gson.Gson
 
 import java.io.ByteArrayOutputStream;
 import java.util.Date;
@@ -65,11 +65,11 @@ public abstract class Tweet {
     }
 
     //@Override
-    public abstract Boolean isImportant();
+    //public abstract Boolean isImportant();
 
     @Override
     public String toString() {
-        // Some people thought they would be funny and add tweets without dates...
+        // Some people thought they would be funny and addNewTweet tweets without dates...
         if(date == null) {
             if(message == null) {
                 return "";
@@ -99,4 +99,7 @@ public abstract class Tweet {
         }
         this.message = message;
     }
+
+    //@Override
+    public abstract Boolean isImportant();
 }

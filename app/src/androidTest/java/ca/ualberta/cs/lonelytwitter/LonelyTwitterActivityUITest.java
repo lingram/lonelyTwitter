@@ -32,7 +32,8 @@ public class LonelyTwitterActivityUITest extends ActivityInstrumentationTestCase
     private void makeTweet(String text) {
         assertNotNull(activity.findViewById(ca.ualberta.cs.lonelytwitter.R.id.saveButton));
         textInput.setText(text);
-        ((Button) activity.findViewById(ca.ualberta.cs.lonelytwitter.R.id.saveButton)).performClick();
+        //removed redundant cast to button
+        activity.findViewById(R.id.saveButton).performClick();
     }
 
     @UiThreadTest
